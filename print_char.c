@@ -6,9 +6,10 @@
  *
  * @c: Character to be printed
  *
- * Return: The character printed to the stdout
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
  */
 int print_char(char c)
 {
-	write(1, &c, 1);
+	return (write(1, &c, 1));
 }
