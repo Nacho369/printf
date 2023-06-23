@@ -10,32 +10,36 @@
  */
 int _printf(const char *format, ...)
 {
-	int indx, indx2, len = 0;
+	int indx = 0, indx2, len = 0;
 	va_list args_param;
 
 	f_type types[] = {
-		{'c', p_char},
+		{'c', p_char}
 		/*{'s', p_str},*/
-		{'%', p_percent}
 	};
+
+	if (format == NULL || (format[0] == '%' && format[1] == 0))
+		return (-1);
 
 	va_start(args_param, format);
 
 	while (format != NULL && format[indx] != '\0')
 	{
-		for (indx2 = 0; indx2 < 2; indx2++)
+		if (format[indx] != '%')
+			len += print_char(format[indx]);
+		else
 		{
-			if (format[indx] == '%' &&
-			format[indx + 1] == types[indx2].fmt_spec)
+			indx++;
+			if (format[indx] == '%')
+				len += print_char('%');
+
+			for (indx2 = 0; indx2 < 1; indx2++)
 			{
-				types[indx2].func_spec(args_param);
-				len++;
-			}
-			else
-			{
-				print_char(format[indx]);
-				len++;
-				break;
+				if (format[indx] == types[indx2].fmt_spec)
+				{
+					len += types[indx2].func_spec(args_param);
+					break;
+				}
 			}
 		}
 
@@ -54,28 +58,11 @@ int _printf(const char *format, ...)
  *
  * Return: void
  */
-void p_char(va_list args_param)
+int p_char(va_list args_param)
 {
-	int ch;
-
-	ch = va_arg(args_param, int);
+	int ch = va_arg(args_param, int);
 
 	print_char(ch);
-}
 
-
-/**
- * p_percent - Prints the percent symbol to the stdout
- *
- * @args_param: Symbol to print
- *
- * Return: void
- */
-void p_percent(va_list args_param)
-{
-	int ch;
-
-	ch = va_arg(args_param, int);
-
-	print_char(ch);
+	return (1);
 }

@@ -20,7 +20,7 @@
 typedef struct format_types
 {
 	char fmt_spec;
-	void (*func_spec)(va_list args_param);
+	int (*func_spec)(va_list args_param);
 } f_type;
 
 
@@ -33,8 +33,6 @@ int print_str(char *str);
 
 
 /* Format Specifier Function Prototypes */
-void p_char(va_list args_param);
-
-void p_percent(va_list args_param);
+int p_char(va_list args_param);
 
 #endif /* MAIN_H */
