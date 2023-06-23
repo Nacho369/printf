@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 
 	while (format != NULL && format[indx] != '\0')
 	{
-		for (indx2 = 0; types[indx2] < 3; indx2++)
+		for (indx2 = 0; types[indx2] < 2; indx2++)
 		{
 			if (format[indx] == '%' &&
 			format[indx + 1] == types[indx2].fmt_spec)
@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 }
 
 
-/*
+/**
  * p_char - Prints a character to the stdout
  *
  * @args_param: Character to print
@@ -57,7 +57,7 @@ void p_char(va_list args_param)
 }
 
 
-/*
+/**
  * p_percent - Prints the percent symbol to the stdout
  *
  * @args_param: Symbol to print
