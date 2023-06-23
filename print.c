@@ -17,26 +17,33 @@ int _printf(const char *format, ...)
 		{'c', p_char},
 		/*{'s', p_str},*/
 		{'%', p_percent}
-	}
+	};
 
 	va_start(args_param, format);
 
 	while (format != NULL && format[indx] != '\0')
 	{
-		for (indx2 = 0; types[indx2] < 2; indx2++)
+		for (indx2 = 0; indx2 < 2; indx2++)
 		{
 			if (format[indx] == '%' &&
 			format[indx + 1] == types[indx2].fmt_spec)
-				types[indx2].funct_spec(va_list args_param);
+			{
+				types[indx2].func_spec(args_param);
+				len++;
+			}
 			else
 			{
 				print_char(format[indx]);
+				len++;
 				break;
 			}
 		}
 
 		indx++;
 	}
+
+	va_end(args_param);
+	return (len);
 }
 
 
