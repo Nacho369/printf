@@ -40,3 +40,26 @@ int p_str(va_list args_param)
 
 	return (len);
 }
+
+/**
+ * p_int - Prints an integer to the stdout
+ *
+ * @args_param: Inter valur to print
+ *
+ * Return: Lenght of character printed
+ */
+int p_int(va_list args_param)
+{
+	int len = 0;
+	int num = va_arg(args_param, int);
+
+	if (num < 0)
+	{
+		print_char('-');
+		num *= -1;
+	}
+
+	len += print_num(num);
+
+	return (len);
+}

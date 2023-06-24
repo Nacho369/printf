@@ -31,3 +31,44 @@ int print_str(char *str)
 
 	return (indx);
 }
+
+
+/**
+ * print_num - Prints an integer value
+ *
+ * @num: Integer value to print
+ *
+ * Return: Lenght of number;
+ */
+int print_num(int num)
+{
+	int iter, ld, len, size;
+	int num_len = num;
+	char ch, *buf;
+
+	for (len = 0; num_len > 0; len++)
+		num_len /= 10;
+
+	buf = malloc(sizeof(char) * (len + 1));
+
+	if (buf == NULL)
+		return (0);
+
+	size = len;
+
+	for (iter = 0; num > 0; iter++)
+	{
+		ld = num % 10;
+		ch = ld + '0';
+		--size;
+		buf[size] = ch;
+		num /= 10;
+	}
+
+	buf[len] = '\0';
+
+	for (iter = 0; buf[iter] != '\0'; iter++)
+		print_char(buf[iter]);
+
+	return (len);
+}
