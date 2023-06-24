@@ -16,15 +16,14 @@ $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c
 ```
 
 ### Files Descriptions
-```
-✓ _printf.c -> Main printf function
+- **_printf.c**: Main printf function
 
-✓ main.h -> Header file
+- **main.h**: Header file
 
-✓ write_func.c -> Function to print a character and string (Putchar/Puts function)
+- **write_func.c**: Function to print a character and string (Putchar/Puts function)
 
-✓ print_format -> Contains function for the format specifiers
-```
+- **print_format**: Contains function for the format specifiers
+
 
 ### Tasks
 #### Task 0. I'm not going anywhere. You can print that wherever you want to. I'm here and I'm a Spur for life
