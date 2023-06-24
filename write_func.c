@@ -46,6 +46,12 @@ int print_num(int num)
 	int num_len = num;
 	char ch, *buf;
 
+	if (num < 0)
+	{
+		print_char('-');
+		num *= -1;
+	}
+
 	for (len = 0; num_len > 0; len++)
 		num_len /= 10;
 
