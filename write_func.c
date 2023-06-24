@@ -59,7 +59,7 @@ int print_num(int num)
 	for (iter = 0; num > 0; iter++)
 	{
 		ld = num % 10;
-		ch = ld + '0';
+		ch = ld + 48;
 		--size;
 		buf[size] = ch;
 		num /= 10;

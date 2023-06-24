@@ -12,7 +12,7 @@ int p_char(va_list args_param)
 {
 	int ch = va_arg(args_param, int);
 
-	print_char(ch);
+	print_char(ch); /* Function in the write_func.c file */
 
 	return (1);
 }
@@ -30,13 +30,7 @@ int p_str(va_list args_param)
 	int len = 0;
 	char *str = va_arg(args_param, char *);
 
-	if (str == NULL)
-	{
-		len = print_str("(null)");
-		return (len);
-	}
-
-	len += print_str(str);
+	len += print_str(str); /* Function in the write_func.c file */
 
 	return (len);
 }
@@ -51,20 +45,23 @@ int p_str(va_list args_param)
 int p_int(va_list args_param)
 {
 	int len = 0;
-	int num = va_arg(args_param, int);
-
-	if (num < 0)
+	unsigned int num;
+	int n = va_arg(args_param, int);
+	
+	if (n < 0)
 	{
-		print_char('-');
-		num *= -1;
+		print_char('-'); /* Function in the write_func.c file */
+		num = n * -1;
 	}
+	else
+		num = n;
 
 	if (num == 0)
 	{
-		len += print_char('0');
+		len += print_char('0'); /* Function in the write_func.c file */
 		return (len);
 	}
 
-	len += print_num(num);
+	len += print_num(num); /* Function in the write_func.c file */
 	return (len);
 }
