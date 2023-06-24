@@ -30,6 +30,11 @@ int p_str(va_list args_param)
 	int len = 0;
 	char *str = va_arg(args_param, char *);
 
+	if (str == NULL)
+	{
+		len = print_str("(null)");
+		return (len);
+	}
 	len += print_str(str); /* Function in the write_func.c file */
 
 	return (len);
