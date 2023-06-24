@@ -59,7 +59,12 @@ int p_int(va_list args_param)
 		num *= -1;
 	}
 
-	len += print_num(num);
+	if (num == 0)
+	{
+		len += print_char('0');
+		return (len);
+	}
 
+	len += print_num(num);
 	return (len);
 }
