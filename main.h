@@ -27,6 +27,9 @@ typedef struct format_types
 /* Functions Prototype */
 int _printf(const char *format, ...);
 
+int check_format(const char *format, va_list args_param,
+		int indx, f_type *types);
+
 int print_char(char c);
 
 int print_str(char *str);
