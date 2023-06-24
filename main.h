@@ -35,4 +35,6 @@ int print_str(char *str);
 /* Format Specifier Function Prototypes */
 int p_char(va_list args_param);
 
+int p_str(va_list args_param);
+
 #endif /* MAIN_H */
