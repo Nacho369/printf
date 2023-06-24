@@ -10,20 +10,20 @@
 - va_arg (man 3 va_arg)
 
 ### Compilation
-Your code will be compiled this way:
+The code will be compiled this way:
 ```
 $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c
 ```
 
-### Files Description
+### Files Descriptions
 ```
-✓ **_printf.c** -> Main printf function
+✓ _printf.c -> Main printf function
 
-✓ **main.h** -> Header file
+✓ main.h -> Header file
 
-✓ **write_func.c** -> Function to print a character and string (Putchar/Puts function)
+✓ write_func.c -> Function to print a character and string (Putchar/Puts function)
 
-✓ **print_format** -> Contains function for the format specifiers
+✓ print_format -> Contains function for the format specifiers
 ```
 
 ### Tasks
