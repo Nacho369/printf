@@ -66,13 +66,15 @@ int check_format(const char *format, va_list args_param, int indx,
 	 */
 	if (format[indx] == '%')
 		len += print_char('%');
-
-	for (indx2 = 0; indx2 < f_len; indx2++)
+	else
 	{
-		if (format[indx] == types[indx2].fmt_spec)
+		for (indx2 = 0; indx2 < f_len; indx2++)
 		{
-			len += types[indx2].func_spec(args_param);
-			break;
+			if (format[indx] == types[indx2].fmt_spec)
+			{
+				len += types[indx2].func_spec(args_param);
+				break;
+			}
 		}
 	}
 
