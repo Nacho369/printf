@@ -33,7 +33,10 @@ int _printf(const char *format, ...)
 		else
 		{
 			indx++;
-			len += check_format(format, args_param, indx, types);
+			if (format[indx] == '%')
+				len += print_char('%');
+			else
+				len += check_format(format, args_param, indx, types);
 		}
 
 		indx++;
@@ -64,17 +67,12 @@ int check_format(const char *format, va_list args_param, int indx,
 	 * If format[indx] == % check the next index if
 	 * it equals to the fmt_spec
 	 */
-	if (format[indx] == '%')
-		len += print_char('%');
-	else
+	for (indx2 = 0; indx2 < f_len; indx2++)
 	{
-		for (indx2 = 0; indx2 < f_len; indx2++)
+		if (format[indx] == types[indx2].fmt_spec)
 		{
-			if (format[indx] == types[indx2].fmt_spec)
-			{
-				len += types[indx2].func_spec(args_param);
-				break;
-			}
+			len += types[indx2].func_spec(args_param);
+			break;
 		}
 	}
 
