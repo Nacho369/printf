@@ -66,8 +66,8 @@ int print_num(int num)
 	}
 
 	buf[len] = '\0';
-
 	print_str(buf);
+	free(buf);
 
 	return (len);
 }
