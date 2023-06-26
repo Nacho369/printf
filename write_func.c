@@ -40,10 +40,10 @@ int print_str(char *str)
  *
  * Return: Lenght of number;
  */
-int print_num(int num)
+int print_num(size_t num)
 {
 	int iter, ld, len, size;
-	int num_len = num;
+	size_t num_len = num;
 	char ch, *buf;
 
 	for (len = 0; num_len > 0; len++)

@@ -50,7 +50,16 @@ int p_str(va_list args_param)
 int p_int(va_list args_param)
 {
 	int len = 0;
-	int num = va_arg(args_param, int);
+	unsigned int num;
+	int n = va_arg(args_param, int);
+
+	if (n < 0)
+	{
+		print_char('-'); /* Function in the write_func.c file */
+		num = n * -1;
+	}
+	else
+		num = n;
 
 	if (num == 0)
 	{
@@ -58,12 +67,6 @@ int p_int(va_list args_param)
 		return (len);
 	}
 
-	if (num < 0)
-	{
-		print_char('-'); /* Function in the write_func.c file */
-		num *= -1;
-	}
-
-	len += print_num(num); /* Function in the write_func.c file */
+	len += print_num(num);
 	return (len);
 }

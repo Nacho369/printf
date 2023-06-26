@@ -35,7 +35,7 @@ int print_char(char c);
 
 int print_str(char *str);
 
-int print_num(int num);
+int print_num(size_t num);
 
 
 /* Format Specifier Function Prototypes */
