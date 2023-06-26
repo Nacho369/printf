@@ -76,6 +76,9 @@ int check_format(const char *format, va_list args_param, int indx,
 		}
 	}
 	if (indx2 == f_len)
+	{
+		len += print_char('%');
 		len += print_char(format[indx]);
+	}
 	return (len);
 }
