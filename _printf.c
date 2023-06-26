@@ -74,7 +74,8 @@ int check_format(const char *format, va_list args_param, int indx,
 			len += types[indx2].func_spec(args_param);
 			break;
 		}
-	}	
-	len += print_char(format[indx]);
+	}
+	if (indx2 == f_len)
+		len += print_char(format[indx]);
 	return (len);
 }
