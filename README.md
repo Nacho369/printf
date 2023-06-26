@@ -52,4 +52,4 @@ Handle the following conversion specifiers:
 
 #### Task 2. With a face like mine, I do better in print
 Handle the following custome conversion specifiers:
-- `b`: the unsigned int argument is converted to binary
+- `b`: the unsigned int argument is converted to `binary`
