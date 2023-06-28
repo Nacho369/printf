@@ -51,15 +51,14 @@ int p_binaryint(va_list args_param)
 	return (len);
 }
 
-
 /**
- * p_hex - Convert and prints integers in hexadecimal format
+ * p_smallhex - Convert and prints integers in hexadecimal format
  *
  * @args_param: Integer in base 10 to convert to hexadecimal
  *
  * Return: Length of characters printed
  */
-int p_hex(va_list args_param)
+int p_smallhex(va_list args_param)
 {
 	unsigned int num;
 	size_t indx, rem, div_num, num_len, size, len = 0, hex = 16;
@@ -101,6 +100,68 @@ int p_hex(va_list args_param)
 
 		if (rem > 9)
 			ch = rem + 87;
+		else
+			ch = rem + 48;
+
+		buf[--size] = ch;
+		div_num /= hex;
+	}
+
+	buf[num_len] = '\0';
+	len += print_str(buf);
+
+	return (len);
+}
+
+/**
+ * p_bighex - Convert and prints integers in hexadecimal (Capital Letter) format
+ *
+ * @args_param: Integer in base 10 to convert to hexadecimal
+ *
+ * Return: Length of characters printed
+ */
+int p_bighex(va_list args_param)
+{
+	unsigned int num;
+	unsigned int indx, rem, div_num, num_len, size, len = 0, hex = 16;
+	int n = va_arg(args_param, int);
+	char *buf, ch;
+
+	if (n < 0)
+	{
+		num = n * -1;
+		num = ~num + 1;
+	}
+	else
+		num = n;
+	
+	if (num < 10)
+	{
+		len += print_char(num + 48);
+		return (len);
+	}
+	else if (num > 9 && num < 16)
+	{
+		len += print_char(num + 55);
+		return (len);
+	}
+
+	div_num = num;
+
+	for (num_len = 0; div_num != 0; num_len++)
+		div_num /= hex;
+
+	buf = malloc(sizeof(char) * (num_len + 1));
+
+	size = num_len;
+	div_num = num;
+
+	for (indx = 0; div_num != 0; indx++)
+	{
+		rem = div_num % hex;
+
+		if (rem > 9)
+			ch = rem + 55;
 		else
 			ch = rem + 48;
 
