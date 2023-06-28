@@ -45,4 +45,7 @@ int p_str(va_list args_param);
 
 int p_int(va_list args_param);
 
+int p_unsignedint(va_list args_param);
+
+int p_octalint(va_list args_param);
 #endif /* MAIN_H */
