@@ -108,7 +108,6 @@ int p_octalint(va_list args_param)
 
 	if (n < 0)
 	{
-		len += print_char('-');
 		num = n * -1;
 	}
 	else
