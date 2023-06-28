@@ -51,8 +51,6 @@ int p_octalint(va_list args_param);
 
 int p_binaryint(va_list args_param);
 
-int p_smallhex(va_list args_param);
-
-int p_bighex(va_list args_param);
+int p_hex(va_list args_param);
 
 #endif /* MAIN_H */
