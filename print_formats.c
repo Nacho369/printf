@@ -55,7 +55,7 @@ int p_int(va_list args_param)
 
 	if (n < 0)
 	{
-		print_char('-'); /* Function in the write_func.c file */
+		len += print_char('-'); /* Function in the write_func.c file */
 		num = n * -1;
 	}
 	else
