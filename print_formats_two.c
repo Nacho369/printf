@@ -23,6 +23,7 @@ int p_binaryint(va_list args_param)
 	{
 		num = n;
 	}
+	num = n;
 	if (num < bin)
 	{
 		len += print_char(num + 48);
@@ -60,7 +61,8 @@ int p_binaryint(va_list args_param)
  */
 int p_hex(va_list args_param)
 {
-	size_t num, indx, rem, div_num, num_len, size, len = 0, hex = 16;
+	unsigned int num;
+	size_t indx, rem, div_num, num_len, size, len = 0, hex = 16;
 	int n = va_arg(args_param, int);
 	char *buf, ch;
 
@@ -71,17 +73,22 @@ int p_hex(va_list args_param)
 	}
 	else
 		num = n;
-
-	if (num < hex)
+	
+	if (num < 10)
 	{
 		len += print_char(num + 48);
+		return (len);
+	}
+	else if (num > 9 && num < 16)
+	{
+		len += print_char(num + 87);
 		return (len);
 	}
 
 	div_num = num;
 
 	for (num_len = 0; div_num != 0; num_len++)
-		div_num /= 16;
+		div_num /= hex;
 
 	buf = malloc(sizeof(char) * (num_len + 1));
 
