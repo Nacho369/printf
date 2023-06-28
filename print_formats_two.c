@@ -49,3 +49,57 @@ int p_binaryint(va_list args_param)
 	len += print_str(buf);
 	return (len);
 }
+
+
+/**
+ * p_hex - Convert and prints integers in hexadecimal format
+ *
+ * @args_param: Integer in base 10 to convert to hexadecimal
+ *
+ * Return: Length of characters printed
+ */
+int p_hex(va_list args_param)
+{
+	size_t indx, rem, div_num, num_len, size, len = 0, hex = 16;
+	int num = va_arg(args_param, int);
+	char *buf, ch;
+
+	if (num < 0)
+	{
+		num *= -1; /* Issue */
+	}
+
+	if (num < hex)
+	{
+		len += print_char(num + 48);
+		return (len);
+	}
+
+	div_num = num;
+
+	for (num_len = 0; div_num != 0; num_len++)
+		div_num /= 16;
+
+	buf = malloc(sizeof(char) * (num_len + 1));
+
+	size = num_len;
+	div_num = num;
+
+	for (indx = 0; div_num != 0; indx++)
+	{
+		rem = div_num % hex;
+
+		if (rem > 9)
+			ch = rem + 87;
+		else
+			ch = rem + 48;
+
+		buf[--size] = ch;
+		div_num /= hex;
+	}
+
+	buf[num_len] = '\0';
+	len += print_str(buf);
+
+	return (len);
+}
