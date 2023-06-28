@@ -64,6 +64,7 @@ int p_int(va_list args_param)
 	if (num == 0)
 	{
 		len += print_char('0'); /* Function in the write_func.c file */
+		len += print_char('\0');
 		return (len);
 	}
 
