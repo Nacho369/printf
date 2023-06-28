@@ -53,4 +53,6 @@ int p_binaryint(va_list args_param);
 
 int p_hex(va_list args_param);
 
+int p_hex2(va_list args_param);
+
 #endif /* MAIN_H */

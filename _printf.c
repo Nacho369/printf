@@ -22,6 +22,7 @@ int _printf(const char *format, ...)
 		{'o', p_octalint},
 		{'b', p_binaryint},
 		{'x', p_hex},
+		{'X', p_hex2},
 		{0, NULL}
 	};
 
@@ -66,7 +67,7 @@ int _printf(const char *format, ...)
 int check_format(const char *format, va_list args_param, int indx,
 		f_type *types)
 {
-	int indx2, len = 0, f_len = 8;
+	int indx2, len = 0, f_len = 9;
 
 	/**
 	 * If format[indx] == % check the next index if
