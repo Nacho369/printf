@@ -60,14 +60,17 @@ int p_binaryint(va_list args_param)
  */
 int p_hex(va_list args_param)
 {
-	size_t indx, rem, div_num, num_len, size, len = 0, hex = 16;
-	int num = va_arg(args_param, int);
+	size_t num, indx, rem, div_num, num_len, size, len = 0, hex = 16;
+	int n = va_arg(args_param, int);
 	char *buf, ch;
 
-	if (num < 0)
+	if (n < 0)
 	{
-		num *= -1; /* Issue */
+		num = n * -1;
+		num = ~num + 1;
 	}
+	else
+		num = n;
 
 	if (num < hex)
 	{
