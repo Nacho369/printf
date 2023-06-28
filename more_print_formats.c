@@ -17,6 +17,7 @@ int p_binaryint(va_list args_param)
 	if (n < 0)
 	{
 		num = n * -1;
+		num = ~num + 1;
 	}
 	else
 	{
