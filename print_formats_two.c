@@ -169,7 +169,7 @@ int p_address(va_list args_param)
 	{
 		num = n * -1;
 		num = ~num + 1;
-		len += print_str("0xffffffff");
+		len += print_str("0x");
 		len += print_hex(num, hex, 1);
 	}
 	return (len);
