@@ -71,3 +71,89 @@ int print_num(size_t num)
 
 	return (len);
 }
+
+
+/**
+ * print_hex - Prints a the hexadecimal value of an integer
+ *
+ * @num: Integer to convert to hex
+ * @hex: Hex value
+ * @hex_case: Hexadecimal case value
+ *
+ * Return: Lenght printed
+ */
+int print_hex(unsigned int num, int hex, int hex_case)
+{
+	size_t indx, rem, div_num, num_len, size, len = 0;
+	char *buf, ch;
+
+	if (num < 10)
+	{
+		len += print_char(num + 48);
+		return (len);
+	}
+	else if (num > 9 && num < 16)
+	{
+		rem = num;
+		ch = check_hex(rem, hex_case);
+		len += print_char(ch);
+		return (len);
+	}
+
+	div_num = num;
+
+	for (num_len = 0; div_num != 0; num_len++)
+		div_num /= hex;
+
+	buf = malloc(sizeof(char) * (num_len + 1));
+
+	size = num_len;
+	div_num = num;
+
+	for (indx = 0; div_num != 0; indx++)
+	{
+		rem = div_num % hex;
+
+		ch = check_hex(rem, hex_case);
+
+		buf[--size] = ch;
+		div_num /= hex;
+	}
+
+	buf[num_len] = '\0';
+	len += print_str(buf);
+
+	return (len);
+}
+
+
+/**
+ * check_hex - Check for upper case hex or lower case hex value
+ *
+ * @rem: Integer to check and convert to char
+ * @hex_case: Hexadecimal value
+ *
+ * Return: Uppercase hex value if @hex_case == 0
+ * else Lowercase value if @hex_case == 1
+ */
+char check_hex(int rem, int hex_case)
+{
+	char ch;
+
+	if (hex_case == 1)
+	{
+		if (rem > 9)
+			ch = rem + 87;
+		else
+			ch = rem + 48;
+	}
+	else
+	{
+		if (rem > 9)
+			ch = rem + 55;
+		else
+			ch = rem + 48;
+	}
+
+	return (ch);
+}

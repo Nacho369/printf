@@ -22,7 +22,7 @@ int _printf(const char *format, ...)
 		{'o', p_octalint},
 		{'b', p_binaryint},
 		{'x', p_hex},
-		{'X', p_hex2},
+		{'X', p_Hex},
 		{0, NULL}
 	};
 

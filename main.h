@@ -37,6 +37,10 @@ int print_str(char *str);
 
 int print_num(size_t num);
 
+int print_hex(unsigned int num, int hex, int hex_case);
+
+char check_hex(int rem, int hex_case);
+
 
 /* Format Specifier Function Prototypes */
 int p_char(va_list args_param);
@@ -53,6 +57,6 @@ int p_binaryint(va_list args_param);
 
 int p_hex(va_list args_param);
 
-int p_hex2(va_list args_param);
+int p_Hex(va_list args_param);
 
 #endif /* MAIN_H */
