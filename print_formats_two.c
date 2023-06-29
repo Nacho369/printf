@@ -149,11 +149,11 @@ int p_Str(va_list args_param)
  *
  * Return: Length of printed address
  */
-int p_addrs(va_list args_param)
+/*int p_addrs(va_list args_param)
 {
-	int len, indx;
+	int len = 0;
 	unsigned long int num;
-	size_t n = va_arg(args_param, size_t);
+	int n = va_arg(args_param, size_t);
 
 	if (n < 0)
 	{
@@ -162,4 +162,6 @@ int p_addrs(va_list args_param)
 	}
 	else
 		num = n;
-}
+
+	return (len);
+}*/
