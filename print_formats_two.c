@@ -140,3 +140,33 @@ int p_Str(va_list args_param)
 
 	return (len);
 }
+
+/**
+ * p_address - Prints address of variables in hexadecimal
+ * @args_param: Address to print
+ *
+ * Return: Length of characters printed
+ */
+int p_address(va_list args_param)
+{
+	int len = 0, hex = 16;
+	int num;
+	unsigned long int digit;
+	unsigned int n  = va_arg(args_param, int);
+	
+	num = n;
+
+	if (num < 0)
+	{
+		digit = num * -1;
+		digit = ~digit + 1;
+	}
+	else
+	{
+		digit = n;
+	}
+
+	len += print_str("0x");
+	len += print_hex(digit, hex, 1);
+	return (len);
+}

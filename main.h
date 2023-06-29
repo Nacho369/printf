@@ -61,6 +61,6 @@ int p_Hex(va_list args_param);
 
 int p_Str(va_list args_param);
 
-/*int p_addrs(va_list args_param);*/
+int p_address(va_list args_param);
 
 #endif /* MAIN_H */

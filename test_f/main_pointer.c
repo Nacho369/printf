@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 
 int main(void)
@@ -16,12 +17,9 @@ int main(void)
 	printf("Address: [%p]\n", addrs);
 
 	printf("\n");
-
-	/*
 	_printf("Address: [%p]\n", addr);
-        _printf("Address with num: [%p]\n", &num);
-        _printf("Address of num with pointer: [%p]\n", n);
-	*/
-
+	_printf("Address with num: [%p]\n", &num);
+	_printf("Address of num with pointer: [%p]\n", n);
+	_printf("Address: [%p]\n", addrs);
 	return (0);
 }
