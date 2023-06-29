@@ -149,18 +149,37 @@ int p_Str(va_list args_param)
  */
 int p_address(va_list args_param)
 {
-	int len = 0; /*hex = 16; */
+	int len = 0, hex = 16;
 	long int n;
+	unsigned int num;
 
 	n = va_arg(args_param, long int);
 	
 	if (n == 0)
 	{
 		len += print_str("(nil)");
-		return (len);
 	}
-
-	len += print_str("0x");
-	len += print_hex(n, 16, 1);
+	else if (n > 0)
+	{
+		
+		len += print_str("0x");
+		len += print_hex(n, hex, 1);
+	}
+	else
+	{
+		num = n * -1;
+		num = ~num + 1;
+		len += print_str("0xffffffff");
+		len += print_hex(num, hex, 1);
+	}
 	return (len);
 }
+
+
+
+
+
+
+
+
+
