@@ -151,7 +151,7 @@ int p_address(va_list args_param)
 {
 	int len = 0, hex = 16;
 	long int n;
-	unsigned int num;
+ 	unsigned int num;
 
 	n = va_arg(args_param, long int);
 	
@@ -167,8 +167,7 @@ int p_address(va_list args_param)
 	}
 	else
 	{
-		num = n * -1;
-		num = ~num + 1;
+		num = n;
 		len += print_str("0x");
 		len += print_hex(num, hex, 1);
 	}
