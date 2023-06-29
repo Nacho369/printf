@@ -100,3 +100,43 @@ int p_Hex(va_list args_param)
 
 	return (len);
 }
+
+
+/**
+ * p_Str - Prints string and non printable characters
+ *
+ * @args_param: String to print
+ *
+ * Return: Lenght of characters printed
+ */
+int p_Str(va_list args_param)
+{
+	int indx, len = 0, num_val;
+	char *str = va_arg(args_param, char *);
+
+	if (str == NULL)
+	{
+		len = print_str("(null)");
+		return (len);
+	}
+
+	for (indx = 0; str[indx]; indx++)
+	{
+		if (((str[indx] > 0) && (str[indx] < 32)) || (str[indx] >= 127))
+		{
+			len += print_char(92);
+			len += print_char(120);
+
+			num_val = str[indx];
+
+			if (num_val < 16)
+				len += print_char(48);
+
+			len += print_hex(str[indx], 16, 0);
+		}
+		else
+			len += print_char(str[indx]);
+	}
+
+	return (len);
+}
