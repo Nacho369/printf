@@ -153,14 +153,14 @@ int p_address(va_list args_param)
 	long int n;
 
 	n = va_arg(args_param, long int);
-/*
-	if (digit == NULL)
+	
+	if (n == 0)
 	{
-		len = print_str("(null)");
+		len += print_str("(nil)");
 		return (len);
 	}
-*/	
+
 	len += print_str("0x");
-	print_hex(n, 16, 1);
+	len += print_hex(n, 16, 1);
 	return (len);
 }
