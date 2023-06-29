@@ -149,17 +149,18 @@ int p_Str(va_list args_param)
  */
 int p_address(va_list args_param)
 {
-	int len = 0, hex = 16;
-	void *ptr;
-	ptr = va_arg(args_param, void *);
+	int len = 0; /*hex = 16; */
+	long int n;
 
-	if (ptr == NULL)
+	n = va_arg(args_param, long int);
+/*
+	if (digit == NULL)
 	{
 		len = print_str("(null)");
 		return (len);
 	}
-	
+*/	
 	len += print_str("0x");
-	len += print_hex(*ptr, hex, 1);
+	print_hex(n, 16, 1);
 	return (len);
 }

@@ -82,7 +82,7 @@ int print_num(size_t num)
  *
  * Return: Lenght printed
  */
-int print_hex(unsigned int num, int hex, int hex_case)
+int print_hex(long int num, int hex, int hex_case)
 {
 	size_t indx, rem, div_num, num_len, size, len = 0;
 	char *buf, ch;

@@ -9,7 +9,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <unistd.h>
-
+#include <stdint.h>
 
 /**
  * struct format_types - A new struct type defining a printer.
@@ -37,7 +37,7 @@ int print_str(char *str);
 
 int print_num(size_t num);
 
-int print_hex(unsigned int num, int hex, int hex_case);
+int print_hex(long int num, int hex, int hex_case);
 
 char check_hex(int rem, int hex_case);
 
