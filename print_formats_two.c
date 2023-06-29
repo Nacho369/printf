@@ -107,11 +107,11 @@ int p_Hex(va_list args_param)
  *
  * @args_param: String to print
  *
- * Return: Length of characters printed
+ * Return: Lenght of characters printed
  */
 int p_Str(va_list args_param)
 {
-	int indx, len = 0, num_val, hex = 16;
+	int indx, len = 0, num_val;
 	char *str = va_arg(args_param, char *);
 
 	if (str == NULL)
@@ -124,15 +124,15 @@ int p_Str(va_list args_param)
 	{
 		if (((str[indx] > 0) && (str[indx] < 32)) || (str[indx] >= 127))
 		{
-			len += print_char(92); /* Prints / */
-			len += print_char(120); /* Prints x */
+			len += print_char(92);
+			len += print_char(120);
 
 			num_val = str[indx];
 
 			if (num_val < 16)
 				len += print_char(48);
 
-			len += print_hex(str[indx], hex, 0);
+			len += print_hex(str[indx], 16, 0);
 		}
 		else
 			len += print_char(str[indx]);
@@ -140,28 +140,3 @@ int p_Str(va_list args_param)
 
 	return (len);
 }
-
-
-/**
- * p_addrs - Prints an address
- *
- * @args_param: Address value to print
- *
- * Return: Length of printed address
- */
-/*int p_addrs(va_list args_param)
-{
-	int len = 0;
-	unsigned long int num;
-	int n = va_arg(args_param, size_t);
-
-	if (n < 0)
-	{
-		num = n * -1;
-		num = ~num + 1;
-	}
-	else
-		num = n;
-
-	return (len);
-}*/
