@@ -21,7 +21,8 @@ int _printf(const char *format, ...)
 		{'u', p_unsignedint}, {'o', p_octalint},
 		{'b', p_binaryint}, {'x', p_hex},
 		{'X', p_Hex}, {'S', p_Str},
-		{'p', p_address}, {0, NULL}
+		{'p', p_address}, {'r', p_rev_str},
+		{0, NULL}
 	};
 
 	if (format == NULL || (format[0] == '%' && format[1] == 0))
@@ -64,7 +65,7 @@ int _printf(const char *format, ...)
 int check_format(const char *format, va_list args_param, int indx,
 		f_type *types, int flag_id)
 {
-	int indx2, len = 0, f_len = 11;
+	int indx2, len = 0, f_len = 12;
 
 	/**
 	 * If format[indx] == % check the next index if

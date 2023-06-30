@@ -70,4 +70,7 @@ int p_Str(va_list args_param, int flag_id);
 
 int p_address(va_list args_param, int flag_id);
 
+int p_rev_str(va_list args_param, int flag_id);
+
+
 #endif /* MAIN_H */
