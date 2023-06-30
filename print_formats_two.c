@@ -159,16 +159,16 @@ int p_address(va_list args_param)
 		return (len);
 	}
 
-	len += print_str("0x");
-
-	if (n > 0)
-		len += print_hex(n, hex, 1);
-	else
+	if (n < 0)
 	{
 		num = n * -1;
 		num = ~num + 1;
-		len += print_hex(num, hex, 1);
 	}
+	else
+		num = n;
+
+	len += print_str("0x");
+	len += print_hex(num, hex, 1);
 
 	return (len);
 }
