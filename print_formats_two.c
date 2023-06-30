@@ -150,7 +150,7 @@ int p_Str(va_list args_param)
 int p_address(va_list args_param)
 {
 	int len = 0, hex = 16;
-	unlint_t num;
+	unsigned long int num;
 	long int n = va_arg(args_param, long int);
 
 	if (n == 0)
