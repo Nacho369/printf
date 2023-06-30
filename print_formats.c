@@ -35,6 +35,7 @@ int p_str(va_list args_param)
 		len = print_str("(null)");
 		return (len);
 	}
+
 	len += print_str(str); /* Function in the write_func.c file */
 
 	return (len);
@@ -68,6 +69,7 @@ int p_int(va_list args_param)
 	}
 
 	len += print_num(num);
+
 	return (len);
 }
 
@@ -88,7 +90,9 @@ int p_unsignedint(va_list args_param)
 		len += print_char('0'); /* Function in the write_func.c file */
 		return (len);
 	}
+
 	len += print_num(num);
+
 	return (len);
 }
 
