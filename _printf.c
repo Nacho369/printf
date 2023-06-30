@@ -10,7 +10,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int indx = 0, len = 0; 
+	int indx = 0, len = 0;
 	va_list args_param;
 	char flag[] = "+ #";
 	int flag_id = -1;
@@ -71,6 +71,7 @@ int _printf(const char *format, ...)
  * @args_param: Chracater to print
  * @indx: Current index of the format string
  * @types: Array of function pointers
+ * @flag_id: Index of flag specifier
  *
  * Return: Lenght of printed string
  */
@@ -95,7 +96,7 @@ int check_format(const char *format, va_list args_param, int indx,
 	{
 		len += print_char('%');
 		if (format[indx - 1] != '%')
-			len += print_char(format[indx-1]);
+			len += print_char(format[indx - 1]);
 		len += print_char(format[indx]);
 	}
 	return (len);
@@ -121,12 +122,3 @@ int check_flag(const char *format, int indx, char *flag)
 	}
 	return (-1);
 }
-
-
-
-
-
-
-
-
-

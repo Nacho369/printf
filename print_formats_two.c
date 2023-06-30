@@ -4,6 +4,8 @@
  * p_binaryint - Convert and Prints the unsigned integer to the stdout
  * @args_param: Integer in base 10 to convert to binary
  *
+ * @flag_id: Index of flag specifier
+ *
  * Return: Length of characters printed
  */
 int p_binaryint(va_list args_param, int flag_id __attribute__((unused)))
@@ -54,6 +56,8 @@ int p_binaryint(va_list args_param, int flag_id __attribute__((unused)))
  *
  * @args_param: Integer in base 10 to convert to hexadecimal
  *
+ * @flag_id: Index of flag specifier
+ *
  * Return: Length of characters printed
  */
 int p_hex(va_list args_param, int flag_id __attribute__((unused)))
@@ -79,6 +83,8 @@ int p_hex(va_list args_param, int flag_id __attribute__((unused)))
  * p_Hex - Convert and prints integers in hexadecimal format
  *
  * @args_param: Integer in base 10 to convert to hexadecimal
+ *
+ * @flag_id: Index of flag specifier
  *
  * Return: Length of characters printed
  */
@@ -106,6 +112,8 @@ int p_Hex(va_list args_param, int flag_id __attribute__((unused)))
  * p_Str - Prints string and non printable characters
  *
  * @args_param: String to print
+ *
+ * @flag_id: Index of flag specifier
  *
  * Return: Lenght of characters printed
  */
@@ -144,6 +152,8 @@ int p_Str(va_list args_param, int flag_id __attribute__((unused)))
 /**
  * p_address - Prints address of variables in hexadecimal
  * @args_param: Address to print
+ *
+ * @flag_id: Index of flag specifier
  *
  * Return: Length of characters printed
  */

@@ -5,6 +5,8 @@
  *
  * @args_param: Character to print
  *
+ * @flag_id: Index of flag specifier
+ *
  * Return: 1 - on success, 0 - on error
  */
 int p_char(va_list args_param, int flag_id __attribute__((unused)))
@@ -21,6 +23,8 @@ int p_char(va_list args_param, int flag_id __attribute__((unused)))
  * p_str - Prints a string to the stdout
  *
  * @args_param: String to print
+ *
+ * @flag_id: Index of flag specifier
  *
  * Return: Lenght of string
  */
@@ -45,6 +49,8 @@ int p_str(va_list args_param, int flag_id __attribute__((unused)))
  *
  * @args_param: Inter valur to print
  *
+ * @flag_id: Index of flag specifier
+ *
  * Return: Lenght of character printed
  */
 int p_int(va_list args_param, int flag_id)
@@ -61,7 +67,7 @@ int p_int(va_list args_param, int flag_id)
 	else
 	{
 		num = n;
-	
+
 		if (num == 0)
 		{
 			if (flag_id == 0)
@@ -74,6 +80,9 @@ int p_int(va_list args_param, int flag_id)
 				len += print_str(" 0");
 				return (len);
 			}
+			else
+			{
+				len += print_char('0');
 		}
 		else
 		{
@@ -87,10 +96,13 @@ int p_int(va_list args_param, int flag_id)
 
 	return (len);
 }
+
 /**
  * p_unsignedint - Prints an unsigned integer to the stdout
  *
  * @args_param: Integer value to print
+ *
+ * @flag_id: Index of flag specifier
  *
  * Return: Length of character printed
  */
@@ -114,9 +126,11 @@ int p_unsignedint(va_list args_param, int flag_id __attribute__((unused)))
  * p_octalint - Convert and Prints an octal integer to the stdout
  * @args_param: Integer in base 10 to convert to octal
  *
+ * @flag_id: Index of flag specifier
+ *
  * Return: Length of characters printed
  */
-int p_octalint(va_list args_param, int flag_id __attribute__((unused)))
+int p_octalint(va_list args_param, int flag_id)
 {
 	int n = va_arg(args_param, int);
 	unsigned int num, t_num, buf_indx, buf_len, len = 0, oct = 8;
