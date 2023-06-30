@@ -9,7 +9,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <unistd.h>
-
+#include <stdint.h>
 
 /**
  * struct format_types - A new struct type defining a printer.
@@ -24,6 +24,7 @@ typedef struct format_types
 	int (*func_spec)(va_list args_param);
 } f_type;
 
+typedef unsigned long int unlint_t;
 
 /* Functions Prototype */
 int _printf(const char *format, ...);
@@ -37,9 +38,11 @@ int print_str(char *str);
 
 int print_num(size_t num);
 
-int print_hex(unsigned int num, int hex, int hex_case);
+int print_hex(unlint_t num, int hex, int hex_case);
 
 char check_hex(int rem, int hex_case);
+
+int _strcmp(char *s1, char *s2);
 
 
 /* Format Specifier Function Prototypes */
