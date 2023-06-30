@@ -1,6 +1,5 @@
 #include "main.h"
 
-
 /**
  * p_char - Prints a character to the stdout
  *
@@ -8,7 +7,7 @@
  *
  * Return: 1 - on success, 0 - on error
  */
-int p_char(va_list args_param)
+int p_char(va_list args_param, int flag_id __attribute__((unused)))
 {
 	int ch = va_arg(args_param, int);
 
@@ -25,7 +24,7 @@ int p_char(va_list args_param)
  *
  * Return: Lenght of string
  */
-int p_str(va_list args_param)
+int p_str(va_list args_param, int flag_id __attribute__((unused)))
 {
 	int len = 0;
 	char *str = va_arg(args_param, char *);
@@ -48,7 +47,7 @@ int p_str(va_list args_param)
  *
  * Return: Lenght of character printed
  */
-int p_int(va_list args_param)
+int p_int(va_list args_param, int flag_id)
 {
 	int len = 0;
 	unsigned int num;
@@ -60,19 +59,34 @@ int p_int(va_list args_param)
 		num = n * -1;
 	}
 	else
-		num = n;
-
-	if (num == 0)
 	{
-		len += print_char('0'); /* Function in the write_func.c file */
-		return (len);
+		num = n;
+	
+		if (num == 0)
+		{
+			if (flag_id == 0)
+			{
+				len += print_str("+0");
+				return (len);
+			}
+			else if (flag_id == 1)
+			{
+				len += print_str(" 0");
+				return (len);
+			}
+		}
+		else
+		{
+			if (flag_id == 0)
+				len += print_char('+');
+			else if (flag_id == 1)
+				len += print_char(' ');
+		}
 	}
-
 	len += print_num(num);
 
 	return (len);
 }
-
 /**
  * p_unsignedint - Prints an unsigned integer to the stdout
  *
@@ -80,7 +94,7 @@ int p_int(va_list args_param)
  *
  * Return: Length of character printed
  */
-int p_unsignedint(va_list args_param)
+int p_unsignedint(va_list args_param, int flag_id __attribute__((unused)))
 {
 	unsigned int len = 0;
 	unsigned int num = va_arg(args_param, int);
@@ -102,7 +116,7 @@ int p_unsignedint(va_list args_param)
  *
  * Return: Length of characters printed
  */
-int p_octalint(va_list args_param)
+int p_octalint(va_list args_param, int flag_id __attribute__((unused)))
 {
 	int n = va_arg(args_param, int);
 	unsigned int num, t_num, buf_indx, buf_len, len = 0, oct = 8;
