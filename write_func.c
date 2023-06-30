@@ -102,14 +102,15 @@ int print_hex(unlint_t num, int hex, int hex_case)
 	}
 
 	div_num = num;
-
 	for (num_len = 0; div_num != 0; num_len++)
 		div_num /= hex;
 
 	buf = malloc(sizeof(char) * (num_len + 1));
+	if (buf == NULL)
+		return (0);
+
 	size = num_len;
 	div_num = num;
-
 	for (indx = 0; div_num != 0; indx++)
 	{
 		rem = div_num % hex;

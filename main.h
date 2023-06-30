@@ -72,5 +72,7 @@ int p_address(va_list args_param, int flag_id);
 
 int p_rev_str(va_list args_param, int flag_id);
 
+int p_rot13(va_list args_param, int flag_id);
+
 
 #endif /* MAIN_H */
