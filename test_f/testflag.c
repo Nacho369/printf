@@ -4,7 +4,7 @@
 int main(void)
 {
 	
-	/*long int l = INT_MAX + 1024; */
+	long int l = INT_MAX + 1024; 
 	long int l1 = INT_MAX - 1024;
 	
 	_printf("%+d", 1024);
@@ -25,11 +25,11 @@ int main(void)
 	printf("\n------------------------\n");
 	_printf("%+d", INT_MIN);
 	printf("%+d", INT_MIN);
-/*
+	
 	printf("\n------------------------\n");
-	_printf("INT_MAX ++%+d", l);
-	printf("INT_MAX ++ %+d", l);
-*/
+	_printf("INT_MAX ++%+d", l); 
+/*	printf("INT_MAX ++ %+d", l); */
+
 	printf("\n------------------------\n");
 	_printf("Less than INT_MIN %+d\n", l1); 
 	printf("Less than INT_MIN %+d\n", l1); 

@@ -6,7 +6,7 @@
  *
  * Return: Length of characters printed
  */
-int p_binaryint(va_list args_param)
+int p_binaryint(va_list args_param, int flag_id __attribute__((unused)))
 {
 	int n = va_arg(args_param, int);
 	unsigned int num, t_num, buf_indx, buf_len, len = 0, bin = 2;
@@ -56,7 +56,7 @@ int p_binaryint(va_list args_param)
  *
  * Return: Length of characters printed
  */
-int p_hex(va_list args_param)
+int p_hex(va_list args_param, int flag_id __attribute__((unused)))
 {
 	unsigned int num;
 	int len = 0, hex = 16;
@@ -82,7 +82,7 @@ int p_hex(va_list args_param)
  *
  * Return: Length of characters printed
  */
-int p_Hex(va_list args_param)
+int p_Hex(va_list args_param, int flag_id __attribute__((unused)))
 {
 	unsigned int num;
 	int len = 0, hex = 16;
@@ -109,7 +109,7 @@ int p_Hex(va_list args_param)
  *
  * Return: Lenght of characters printed
  */
-int p_Str(va_list args_param)
+int p_Str(va_list args_param, int flag_id __attribute__((unused)))
 {
 	int indx, len = 0, num_val;
 	char *str = va_arg(args_param, char *);
@@ -147,7 +147,7 @@ int p_Str(va_list args_param)
  *
  * Return: Length of characters printed
  */
-int p_address(va_list args_param)
+int p_address(va_list args_param, int flag_id __attribute__((unused)))
 {
 	int len = 0, hex = 16;
 	long int n;
