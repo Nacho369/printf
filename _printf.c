@@ -19,8 +19,7 @@ int _printf(const char *format, ...)
 		{'u', p_unsignedint}, {'o', p_octalint},
 		{'b', p_binaryint}, {'x', p_hex},
 		{'X', p_Hex}, {'S', p_Str},
-		{'p', p_address},
-		{0, NULL}
+		{'p', p_address}, {0, NULL}
 	};
 
 	if (format == NULL || (format[0] == '%' && format[1] == 0))

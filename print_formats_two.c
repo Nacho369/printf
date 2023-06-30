@@ -150,23 +150,16 @@ int p_Str(va_list args_param)
 int p_address(va_list args_param)
 {
 	int len = 0, hex = 16;
-	int num;
-	unsigned long int digit;
-	unsigned int n  = va_arg(args_param, int);
-	
-	num = n;
+	unsigned long int  num;
+	void *ptr = va_arg(args_param, void *);
 
-	if (num < 0)
-	{
-		digit = num * -1;
-		digit = ~digit + 1;
-	}
-	else
-	{
-		digit = n;
-	}
+	if (ptr == NULL)
+		len += _printf("(nil)");
+
+	num = (unsigned long int)ptr;
 
 	len += print_str("0x");
-	len += print_hex(digit, hex, 1);
+	len += print_hex(num, hex, 1);
+
 	return (len);
 }
