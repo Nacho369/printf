@@ -128,12 +128,10 @@ int p_octalint(va_list args_param)
 		t_num /= oct;
 
 	buf = malloc(sizeof(char) * buf_len + 1);
-
 	if (buf == NULL)
 		return (0);
 
 	t_num = num;
-
 	for (buf_indx = (buf_len - 1); t_num != 0; buf_indx--)
 	{
 		buf[buf_indx] = (t_num % oct) + '0';

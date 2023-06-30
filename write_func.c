@@ -106,16 +106,13 @@ int print_hex(unlint_t num, int hex, int hex_case)
 		div_num /= hex;
 
 	buf = malloc(sizeof(char) * (num_len + 1));
-
 	size = num_len;
 	div_num = num;
 
 	for (indx = 0; div_num != 0; indx++)
 	{
 		rem = div_num % hex;
-
 		ch = check_hex(rem, hex_case);
-
 		buf[--size] = ch;
 		div_num /= hex;
 	}

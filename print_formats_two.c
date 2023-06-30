@@ -21,24 +21,21 @@ int p_binaryint(va_list args_param)
 		num = n;
 
 	num = n;
-
 	if (num < bin)
 	{
 		len += print_char(num + 48);
 		return (len);
 	}
-	t_num = num;
 
+	t_num = num;
 	for (buf_len = 0; t_num != 0; buf_len++)
 		t_num /= bin;
 
 	buf = malloc(sizeof(char) * buf_len + 1);
-
 	if (buf == NULL)
 		return (0);
 
 	t_num = num;
-
 	for (buf_indx = buf_len - 1; t_num != 0; buf_indx--)
 	{
 		buf[buf_indx] = (t_num % bin) + '0';
