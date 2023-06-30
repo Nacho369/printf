@@ -81,7 +81,6 @@ int p_int(va_list args_param, int flag_id)
 				return (len);
 			}
 			else
-			{
 				len += print_char('0');
 		}
 		else
@@ -130,7 +129,7 @@ int p_unsignedint(va_list args_param, int flag_id __attribute__((unused)))
  *
  * Return: Length of characters printed
  */
-int p_octalint(va_list args_param, int flag_id)
+int p_octalint(va_list args_param, int flag_id __attribute__((unused)))
 {
 	int n = va_arg(args_param, int);
 	unsigned int num, t_num, buf_indx, buf_len, len = 0, oct = 8;
