@@ -154,7 +154,10 @@ int p_address(va_list args_param)
 	long int n = va_arg(args_param, long int);
 
 	if (n == 0)
+	{
 		len += print_str("(nil)");
+		return (len);
+	}
 
 	len += print_str("0x");
 
