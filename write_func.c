@@ -84,7 +84,8 @@ int print_num(size_t num)
  */
 int print_hex(unlint_t num, int hex, int hex_case)
 {
-	unlint_t indx, rem, div_num, num_len, size, len = 0;
+	int indx, rem, num_len, size, len = 0;
+	unlint_t div_num;
 	char *buf, ch;
 
 	if (num < 10)
