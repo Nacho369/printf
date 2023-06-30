@@ -46,6 +46,7 @@ int p_binaryint(va_list args_param)
 	}
 	buf[buf_len] = '\0';
 	len += print_str(buf);
+	free(buf);
 	return (len);
 }
 
