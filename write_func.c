@@ -122,6 +122,7 @@ int print_hex(unlint_t num, int hex, int hex_case)
 
 	buf[num_len] = '\0';
 	len += print_str(buf);
+	free(buff);
 
 	return (len);
 }

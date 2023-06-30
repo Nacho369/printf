@@ -24,6 +24,7 @@ typedef struct format_types
 	int (*func_spec)(va_list args_param);
 } f_type;
 
+/* Alias for unsigned long int data type */
 typedef unsigned long int unlint_t;
 
 /* Functions Prototype */
@@ -41,8 +42,6 @@ int print_num(size_t num);
 int print_hex(unlint_t num, int hex, int hex_case);
 
 char check_hex(int rem, int hex_case);
-
-int _strcmp(char *s1, char *s2);
 
 
 /* Format Specifier Function Prototypes */
