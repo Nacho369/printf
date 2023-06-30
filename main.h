@@ -23,15 +23,6 @@ typedef struct format_types
 	char fmt_spec;
 	int (*func_spec)(va_list args_param, int flag_id);
 } f_type;
-/*
-typedef struct flag_types
-{
-	char flag_char;
-	int (*flag_func)(int flg_indx);
-} flag_type;
-*/
-
-
 
 /* Alias for unsigned long int data type */
 typedef unsigned long int unlint_t;
@@ -53,6 +44,10 @@ int print_hex(unlint_t num, int hex, int hex_case);
 char check_hex(int rem, int hex_case);
 
 int check_flag(const char *format, int indx, char *flag);
+
+int check_next(const char *format, int indx, char *flag, va_list args_param,
+		f_type *types, int flag_id);
+
 
 /* Format Specifier Function Prototypes */
 int p_char(va_list args_param, int flag_id);

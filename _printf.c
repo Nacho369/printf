@@ -37,24 +37,10 @@ int _printf(const char *format, ...)
 		else
 		{
 			indx++;
-			if (format[indx] == '%')
-			{
-				len += print_char('%');
-			}
-			else
-			{
-				flag_id = check_flag(format, indx, flag);
-				if (flag_id < 0)
-				{
-					len += check_format(format, args_param, indx, types, flag_id);
-				}
-				else
-				{
-					indx++;
-					len += check_format(format, args_param, indx, types, flag_id);
-				}
-			}
+			len += check_next(format, indx, flag, args_param,
+					types, flag_id);
 		}
+
 		indx++;
 	}
 
@@ -102,6 +88,7 @@ int check_format(const char *format, va_list args_param, int indx,
 	return (len);
 }
 
+
 /**
  * check_flag - Check for flags
  * @format: format string
@@ -121,4 +108,42 @@ int check_flag(const char *format, int indx, char *flag)
 			return (i);
 	}
 	return (-1);
+}
+
+
+/**
+ * check_next - Check if the next character is a format character, a flag or
+ * a non format character
+ *
+ * @format: Format string
+ * @indx: Current indx passed in
+ * @flag: Pointer to array of flags
+ * @args_param: Argument passed
+ * @types: Array of function pointera
+ * @flag_id: Index of the flag
+ *
+ * Return: Length of characters
+ */
+int check_next(const char *format, int indx, char *flag, va_list args_param,
+		f_type *types, int flag_id)
+{
+	int len = 0;
+
+	if (format[indx] == '%')
+	{
+		len += print_char('%');
+	}
+	else
+	{
+		flag_id = check_flag(format, indx, flag);
+		if (flag_id < 0)
+			len += check_format(format, args_param, indx, types, flag_id);
+		else
+		{
+			indx++;
+			len += check_format(format, args_param, indx, types, flag_id);
+		}
+	}
+
+	return (len);
 }
