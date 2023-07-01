@@ -84,7 +84,6 @@ int check_format(const char *format, va_list args_param, int indx,
 		len += print_char('%');
 		if (format[indx - 1] != '%')
 			len += print_char(format[indx - 1]);
-
 		len += print_char(format[indx]);
 	}
 	return (len);
@@ -138,12 +137,8 @@ int check_next(const char *format, int indx, char *flag, va_list args_param,
 	else
 	{
 		flag_id = check_flag(format, indx, flag);
-
-		if (flag_id < 0) /* No match to flag */
-		{
-			indx++;
+		if (flag_id < 0)
 			len += check_format(format, args_param, indx, types, flag_id);
-		}
 		else
 		{
 			indx++;

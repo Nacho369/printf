@@ -9,47 +9,46 @@
  */
 int main(void)
 {
-	void *p = (void *)-1;
-
-	void *p1 = (void *)0x7fff5100b6f8;
+	int len, len2;
+	void *p = (void *)0x7fff5100b6f8;
+	
+	/*
 	void *p2 = (void *)0x7faf51f0f608;
 	void *p3 = (void *)0x6ff42510b6f8;
 	void *p4 = (void *)0x7fff510236f8;
-	
-	_printf("Can you print an address?\n%p\nNice!\n", p);
-	printf("Can you print an address?\n%p\nNice!\n", p);
-	
-	printf("\n--------------------------------\n");
-	_printf("%p", p);
-	printf("%p", p);
-	
-	printf("\n--------------------------------\n");
-	_printf("%p", NULL);
-	printf("%p", NULL);
+	void *p5 = (void *)-1;
+	*/
 
-	printf("\n--------------------------------\n");
-	_printf("Can you print an address?\n%p\nNice!\n", p);
-	printf("Can you print an address?\n%p\nNice!\n", p);
-	
-	printf("\n--------------------------------\n");
+	/*
+	len = _printf("%p", p);
+	len2 = printf("%p", p);
 
-	_printf("Can you print several addresses?\n%p,%p,%p,%p\nNice!\n", p1, p2, p3, p4);
-	printf("Can you print several addresses?\n%p,%p,%p,%p\nNice!\n", p1, p2, p3, p4);
+	len = _printf("%p", NULL);
+	len2 = printf("%p", NULL);
 
-	printf("\n--------------------------------\n");
-	_printf("");
-	printf(""); 
+	len = _printf("Can you print an address?\n%p\nNice!\n", p);
+	len2 = printf("Can you print an address?\n%p\nNice!\n", p);
 
-	printf("\n--------------------------------\n");
-	_printf("%pppp", p);
-	printf("%pppp", p);
+	len = _printf("Can you print several addresses?\n%p,%p,%p,%p\nNice!\n", p, p2, p3, p4);
+	len2 = printf("Can you print several addresses?\n%p,%p,%p,%p\nNice!\n", p, p2, p3, p4);
 
-	printf("\n--------------------------------\n");
-	_printf("%p\n", -69344402444398);
-	printf("%p\n", -69344402444398);
-	
-	printf("\n--------------------------------\n");
-	_printf("%p\n", &p1);
-	printf("%p\n", &p1);
+	len = _printf("");
+	len2 = printf("");
+
+	len = _printf("Can you print an address?\n%p\nNice!\n", p5);
+	len2 = printf("Can you print an address?\n%p\nNice!\n", p5);
+	*/
+
+	len = _printf("%pppp\n", p);
+	len2 = printf("%pppp\n", p);
+
+	fflush(stdout);
+
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
 	return (0);
 }
