@@ -14,6 +14,7 @@ int _printf(const char *format, ...)
 	va_list args_param;
 	char flag[] = "+ #";
 	int flag_id = -1;
+	int *ptr_indx = &indx;
 
 	f_type types[] = { /* Add to */
 		{'c', p_char}, {'s', p_str}, {'d', p_int}, {'i', p_int},
@@ -35,10 +36,9 @@ int _printf(const char *format, ...)
 		else
 		{
 			indx++;
-			len += check_next(format, indx, flag, args_param,
+			len += check_next(format, ptr_indx, flag, args_param,
 					types, flag_id);
 		}
-
 		indx++;
 	}
 
@@ -122,24 +122,24 @@ int check_flag(const char *format, int indx, char *flag)
  *
  * Return: Length of characters
  */
-int check_next(const char *format, int indx, char *flag, va_list args_param,
+int check_next(const char *format, int *ptr_indx, char *flag, va_list args_param,
 		f_type *types, int flag_id)
 {
 	int len = 0;
 
-	if (format[indx] == '%')
+	if (format[*ptr_indx] == '%')
 	{
 		len += print_char('%');
 	}
 	else
 	{
-		flag_id = check_flag(format, indx, flag);
+		flag_id = check_flag(format, *ptr_indx, flag);
 		if (flag_id < 0)
-			len += check_format(format, args_param, indx, types, flag_id);
+			len += check_format(format, args_param, *ptr_indx, types, flag_id);
 		else
 		{
-			indx++;
-			len += check_format(format, args_param, indx, types, flag_id);
+			*ptr_indx += 1;
+			len += check_format(format, args_param, *ptr_indx, types, flag_id);
 		}
 	}
 
