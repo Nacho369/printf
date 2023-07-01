@@ -1,13 +1,9 @@
-<<<<<<< HEAD
-=======
 #include "main.h"
->>>>>>> task7
-#include <stdio.h>
 
 int main(void)
 {
 	
-	long int l = INT_MAX + 1024; 
+	/*long int l = INT_MAX + 1024;*/
 	long int l1 = INT_MAX - 1024;
 	
 	_printf("%+d", 1024);
@@ -30,7 +26,7 @@ int main(void)
 	printf("%+d", INT_MIN);
 	
 	printf("\n------------------------\n");
-	_printf("INT_MAX ++%+d", l); 
+/*	_printf("INT_MAX ++%+d", l); */
 /*	printf("INT_MAX ++ %+d", l); */
 
 	printf("\n------------------------\n");
