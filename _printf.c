@@ -16,10 +16,13 @@ int _printf(const char *format, ...)
 	int flag_id = -1;
 
 	f_type types[] = { /* Add to */
-		{'c', p_char}, {'s', p_str}, {'d', p_int}, {'i', p_int}, 
-		{'u', p_unsignedint}, {'o', p_octalint}, {'b', p_binaryint}, 
-		{'x', p_hex}, {'X', p_Hex}, {'S', p_Str}, {'p', p_address}, 
-		{'r', p_rev_str}, {'R', p_rot13}, {0, NULL}
+		{'c', p_char}, {'s', p_str},
+		{'d', p_int}, {'i', p_int},
+		{'u', p_unsignedint}, {'o', p_octalint},
+		{'b', p_binaryint}, {'x', p_hex},
+		{'X', p_Hex}, {'S', p_Str},
+		{'p', p_address}, {'r', p_rev_str},
+		{'R', p_rot13}, {0, NULL}
 	};
 
 	if (format == NULL || (format[0] == '%' && format[1] == 0))
