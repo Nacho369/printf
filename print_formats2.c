@@ -60,7 +60,7 @@ int p_binaryint(va_list args_param, int flag_id __attribute__((unused)))
  *
  * Return: Length of characters printed
  */
-int p_hex(va_list args_param, int flag_id __attribute__((unused)))
+int p_hex(va_list args_param, int flag_id)
 {
 	unsigned int num;
 	int len = 0, hex = 16;
@@ -73,7 +73,8 @@ int p_hex(va_list args_param, int flag_id __attribute__((unused)))
 	}
 	else
 		num = n;
-
+	if (flag_id == 2 && num != 0)
+		len += print_str("0x");
 	len += print_hex(num, hex, 1);
 
 	return (len);
@@ -88,7 +89,7 @@ int p_hex(va_list args_param, int flag_id __attribute__((unused)))
  *
  * Return: Length of characters printed
  */
-int p_Hex(va_list args_param, int flag_id __attribute__((unused)))
+int p_Hex(va_list args_param, int flag_id)
 {
 	unsigned int num;
 	int len = 0, hex = 16;
@@ -101,6 +102,9 @@ int p_Hex(va_list args_param, int flag_id __attribute__((unused)))
 	}
 	else
 		num = n;
+
+	if (flag_id == 2 && num != 0)
+		len += print_str("0X");
 
 	len += print_hex(num, hex, 0);
 

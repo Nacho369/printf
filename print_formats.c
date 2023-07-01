@@ -142,13 +142,11 @@ int p_octalint(va_list args_param, int flag_id)
 	}
 	else
 		num = n;
-
 	if (num < 8)
 	{
 		len += print_char(num + 48);
 		return (len);
 	}
-
 	t_num = num;
 
 	for (buf_len = 0; t_num != 0; buf_len++)
@@ -170,6 +168,5 @@ int p_octalint(va_list args_param, int flag_id)
 		len += print_char('0');
 	len += print_str(buf);
 	free(buf);
-
 	return (len);
 }

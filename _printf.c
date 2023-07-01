@@ -18,8 +18,8 @@ int _printf(const char *format, ...)
 
 	f_type types[] = { /* Add to */
 		{'c', p_char}, {'s', p_str}, {'d', p_int}, {'i', p_int},
-		{'u', p_unsignedint}, {'o', p_octalint}, {'b', p_binaryint}, 
-		{'x', p_hex}, {'X', p_Hex}, {'S', p_Str}, {'p', p_address}, 
+		{'u', p_unsignedint}, {'o', p_octalint}, {'b', p_binaryint},
+		{'x', p_hex}, {'X', p_Hex}, {'S', p_Str}, {'p', p_address},
 		{'r', p_rev_str}, {'R', p_rot13}, {0, NULL}
 	};
 
@@ -114,7 +114,7 @@ int check_flag(const char *format, int indx, char *flag)
  * a non format character
  *
  * @format: Format string
- * @indx: Current indx passed in
+ * @ptr_indx: Pointer to index variable
  * @flag: Pointer to array of flags
  * @args_param: Argument passed
  * @types: Array of function pointera
@@ -122,8 +122,8 @@ int check_flag(const char *format, int indx, char *flag)
  *
  * Return: Length of characters
  */
-int check_next(const char *format, int *ptr_indx, char *flag, va_list args_param,
-		f_type *types, int flag_id)
+int check_next(const char *format, int *ptr_indx, char *flag,
+		va_list args_param, f_type *types, int flag_id)
 {
 	int len = 0;
 
