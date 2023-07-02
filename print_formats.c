@@ -72,12 +72,12 @@ int p_int(va_list args_param, int flag_id)
 		{
 			if (flag_id == 0)
 			{
-				len += print_str("+0");
+				len += print_str(" 0");
 				return (len);
 			}
 			else if (flag_id == 1)
 			{
-				len += print_str(" 0");
+				len += print_str("+0");
 				return (len);
 			}
 			else
@@ -86,9 +86,9 @@ int p_int(va_list args_param, int flag_id)
 		else
 		{
 			if (flag_id == 0)
-				len += print_char('+');
-			else if (flag_id == 1)
 				len += print_char(' ');
+			else if (flag_id == 1)
+				len += print_char('+');
 		}
 	}
 	len += print_num(num);

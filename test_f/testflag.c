@@ -3,7 +3,7 @@
 int main(void)
 {
 	
-	/*long int l = INT_MAX + 1024;*/
+	long int l = INT_MAX + 1024;
 	long int l1 = INT_MAX - 1024;
 	
 	_printf("%+d", 1024);
@@ -26,7 +26,7 @@ int main(void)
 	printf("%+d", INT_MIN);
 	
 	printf("\n------------------------\n");
-/*	_printf("INT_MAX ++%+d", l); */
+	_printf("INT_MAX ++%+d", l);
 /*	printf("INT_MAX ++ %+d", l); */
 
 	printf("\n------------------------\n");
@@ -155,5 +155,50 @@ int main(void)
 	printf("% i", INT_MIN);
 	
 	printf("\n------------------------\n");
+	
+	printf("\n------------------------\n");
+	_printf("%#o\n", 1024);
+	printf("%#o\n", 1024);
+	
+	printf("\n------------------------\n");
+	_printf("%#o", 0);
+	printf("%#o", 0);
+
+	printf("\n------------------------\n");
+	_printf("%#o", UINT_MAX);
+	printf("%#o", UINT_MAX);
+	
+	printf("\n------------------------\n");
+	_printf("%#x", 1024);
+	printf("%#x", 1024);
+	
+	printf("\n------------------------\n");
+	_printf("%#x", 0);
+	printf("%#x", 0);
+	
+	printf("\n------------------------\n");
+	_printf("%#x", UINT_MAX);
+	printf("%#x", UINT_MAX);
+	
+	printf("\n------------------------\n");
+	_printf("%#X", 1024);
+	printf("%#X", 1024);
+	
+	printf("\n------------------------\n");
+	_printf("%#X", 0);
+	printf("%#X", 0);
+	
+	printf("\n------------------------\n");
+	_printf("%#X", UINT_MAX);
+	printf("%#X", UINT_MAX);
+	
+	printf("\n------------------------\n");
+	_printf("% "); 
+	printf("% "); 
+	
+	printf("\n------------------------\n");
+	_printf("% % % % ");
+	printf("% % % % ");
+
 	return (0);
 }
