@@ -38,6 +38,10 @@ int _printf(const char *format, ...)
 			indx++;
 			len += check_next(format, ptr_indx, flag, args_param,
 					types, flag_id);
+			if (format[*ptr_indx] == '\0')
+				break;
+			if ((format[*ptr_indx] == '%') && format[*ptr_indx - 1] == ' ')
+				break;
 		}
 		indx++;
 	}
@@ -125,7 +129,7 @@ int check_flag(const char *format, int indx, char *flag)
 int check_next(const char *format, int *ptr_indx, char *flag,
 		va_list args_param, f_type *types, int flag_id)
 {
-	int len = 0; int flag_id2 = 0;
+	int len = 0, flag_id2 = 0;
 
 	if (format[*ptr_indx] == '%')
 	{
@@ -139,6 +143,12 @@ int check_next(const char *format, int *ptr_indx, char *flag,
 		else
 		{
 			*ptr_indx += 1;
+			if (format[*ptr_indx] == '%' || format[*ptr_indx] == '\0')
+			{
+				len += print_str("% ");
+				return (len);
+			}
+
 			flag_id2 = check_flag(format, *ptr_indx, flag);
 			if (flag_id2 < 0)
 				len += check_format(format, args_param, *ptr_indx, types, flag_id);
