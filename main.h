@@ -45,8 +45,8 @@ char check_hex(int rem, int hex_case);
 
 int check_flag(const char *format, int indx, char *flag);
 
-int check_next(const char *format, int *ptr_indx, char *flag, va_list args_param,
-		f_type *types, int flag_id);
+int check_next(const char *format, int *ptr_indx, char *flag,
+		va_list args_param, f_type *types, int flag_id);
 
 
 /* Format Specifier Function Prototypes */
